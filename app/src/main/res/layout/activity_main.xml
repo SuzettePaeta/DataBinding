@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="counterVM"
+            type="suzy.com.counter.CounterModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/btn_minus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:text="@string/minus"
+            android:onClick="@{() -> counterVM.decrement()}"/>
+
+        <TextView
+            android:id="@+id/txt_count"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toStartOf="@+id/btn_plus"
+            android:layout_toEndOf="@id/btn_minus"
+            android:text="@{String.valueOf(counterVM.count)}"
+            android:textAlignment="center" />
+
+        <Button
+            android:id="@+id/btn_plus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:text="@string/plus"
+            android:onClick="@{() -> counterVM.increment()}"/>
+
+    </RelativeLayout>
+</layout>
